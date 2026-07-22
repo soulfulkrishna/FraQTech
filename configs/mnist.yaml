@@ -1,0 +1,15 @@
+dataset:
+  train_size: 2000
+  test_size: 500
+  image_size: 8
+  seed: 123
+  normalization: zero_to_pi
+qrc:
+  qubits: [5, 10, 15]
+  temporal_bins: 8
+  virtual_nodes: 1
+  shots: [0, 1024]
+readout:
+  model: multinomial_logistic
+  C_values: [0.01, 0.1, 1.0, 10.0]
+metrics: [accuracy, macro_f1, runtime_sec]

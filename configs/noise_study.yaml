@@ -1,0 +1,23 @@
+qubits: 5
+temporal_bins: 8
+virtual_nodes: 1
+sample_windows: 100
+shots: 1024
+seeds: [0, 1, 2]
+conditions:
+  - name: ideal_shot
+    depolarizing_1q: 0.0
+    depolarizing_2q: 0.0
+    amplitude_damping: 0.0
+  - name: low_noise
+    depolarizing_1q: 0.001
+    depolarizing_2q: 0.005
+    amplitude_damping: 0.001
+  - name: medium_noise
+    depolarizing_1q: 0.005
+    depolarizing_2q: 0.010
+    amplitude_damping: 0.005
+  - name: high_noise
+    depolarizing_1q: 0.010
+    depolarizing_2q: 0.020
+    amplitude_damping: 0.010

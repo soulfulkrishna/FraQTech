@@ -1,0 +1,86 @@
+project:
+  team_name: FraQTech
+  title: Hardware-Portable Quantum Reservoir Computing for Regime-Sensitive VIX Volatility Forecasting
+  track: Track A - Financial Volatility Prediction
+  challenge: Dynamic Systems Forecasting
+  seed_list: [0, 1, 2, 3, 4]
+
+data:
+  dataset_name: finance_vix_vol_h1
+  csv_path: data/processed/finance_vix_vol_h1.csv
+  source_ticker: ^VIX
+  start: '2015-01-01'
+  end: '2025-12-31'
+  lookback: 50
+  horizon: 1
+  temporal_bins: 8
+  train_fraction: 0.60
+  validation_fraction: 0.20
+  value_column: value
+  target_column: target
+  split_column: split
+  time_column: date
+  threshold_column: target_regime_threshold
+  target_regime_column: target_regime
+  transition_column: enter_high_regime
+  scaling: robust_train_only
+
+validation:
+  selection_metric: qlike
+  refit_train_plus_validation: true
+  test_used_once: true
+
+classical_models:
+  persistence: {}
+  ridge_lag:
+    alphas: [0.0001, 0.001, 0.01, 0.1, 1.0]
+  har_rv:
+    alphas: [0.0, 0.0001, 0.001, 0.01]
+  garch:
+    p: 1
+    q: 1
+    distribution: t
+  esn:
+    reservoir_sizes: [100, 300, 600]
+    spectral_radii: [0.7, 0.9, 1.1]
+    leak_rates: [0.1, 0.3, 0.6]
+    ridge_alphas: [0.0001, 0.001, 0.01]
+  tcn:
+    hidden_dim: 64
+    num_layers: 3
+    dropout: 0.1
+    epochs: 30
+    batch_size: 128
+    learning_rate: 0.001
+    weight_decay: 0.0001
+
+qrc:
+  primary_readout: ridge
+  secondary_readout: tcn
+  ridge_alphas: [0.0001, 0.001, 0.01, 0.1, 1.0]
+  classification_C: [0.01, 0.1, 1.0, 10.0]
+  exact_simulator_batch_size:
+    5: 64
+    10: 16
+    15: 2
+  hardware_validation_windows: 100
+  hardware_calibration_windows: 20
+
+metrics:
+  regression: [rmse, nrmse_sigma, mae, qlike, r2]
+  calibration: [mz_intercept, mz_slope, mz_joint_pvalue]
+  classification: [macro_f1, balanced_accuracy, auroc, brier, transition_recall]
+  comparison: [diebold_mariano]
+
+hardware:
+  primary_provider: ibm
+  primary_qubits: 5
+  stretch_qubits: 10
+  shots: 1024
+  optimization_level: 3
+  resilience_level: 1
+  dynamical_decoupling: true
+  dd_sequence: XY4
+  max_circuits_per_job: 200
+  backend_name: auto
+  qbraid_secondary_qrn: null
