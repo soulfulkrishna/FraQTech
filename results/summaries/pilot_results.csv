@@ -1,0 +1,6 @@
+dataset,model,nrmse_mean,nrmse_std,rmse_mean,mae_mean,status
+finance_vix_vol_h1,cv_gqrc_baseline_tcn,0.4127,0.0062,0.02055,0.01282,completed_prior_pilot
+finance_vix_vol_h1,tcn,0.4167,0.0020,0.02074,0.01275,completed_prior_pilot
+finance_vix_vol_h1,ridge_lag,0.4534,,0.02257,0.01358,completed_prior_pilot
+finance_vix_vol_h1,esn,0.4726,0.0043,0.02353,0.01444,completed_prior_pilot
+finance_vix_vol_h1,legacy_gb_qrc_baseline_tcn,1.1070,0.0342,0.05511,0.03645,negative_prior_pilot
