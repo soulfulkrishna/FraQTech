@@ -8,7 +8,7 @@ This repository is the Phase 3 execution package for a gate-model quantum reserv
 > **Status:** all code, configurations, documentation, paper source, qBraid Skill, hardware adapters, and result-generation scripts are present. New 5/10/15-qubit, noise, QPU, and MNIST result files are intentionally not pre-filled.
 
 <!-- Replace YOUR_GITHUB_REPO.git after publishing. -->
-[<img src="https://qbraid-static.s3.amazonaws.com/logos/Launch_on_qBraid_black.png" width="150">](https://account.qbraid.com?gitHubUrl=https://github.com/YOUR_GITHUB_REPO.git)
+[<img src="https://qbraid-static.s3.amazonaws.com/logos/Launch_on_qBraid_black.png" width="150">](https://account.qbraid.com?gitHubUrl=https://github.com/soulfulkrishna/FraQTech.git)
 
 ## Headline pilot evidence already available
 
