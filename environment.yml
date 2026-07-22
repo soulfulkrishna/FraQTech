@@ -1,0 +1,24 @@
+name: fraqtech-phase3
+channels:
+  - conda-forge
+dependencies:
+  - python=3.11
+  - pip
+  - numpy
+  - pandas
+  - scipy
+  - scikit-learn
+  - pyyaml
+  - pytorch
+  - torchvision
+  - statsmodels
+  - matplotlib
+  - psutil
+  - pytest
+  - pip:
+      - arch>=7.0
+      - yfinance>=0.2.40
+      - qiskit[all]~=2.4.0
+      - qiskit-aer>=0.17
+      - qiskit-ibm-runtime~=0.46.1
+      - qbraid>=0.12.1

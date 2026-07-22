@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+title: Hardware-Portable Quantum Reservoir Computing for Regime-Sensitive VIX Volatility Forecasting
+message: Please cite the final challenge write-up and this software artifact.
+type: software
+authors:
+  - family-names: FraQTech
+    given-names: Team
+version: 1.0.0
+date-released: 2026-07-26
+license: MIT
